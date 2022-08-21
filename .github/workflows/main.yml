@@ -1,0 +1,16 @@
+ name: Example
+
+ on:
+   push:
+     branches:
+        - master
+ # pull_request:
+
+ jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - name: checkout repo
+        uses: actions/checkout@v2.3.4
+      - name: show resume.tex file content
+        run: cat app/build.gradle
