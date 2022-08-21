@@ -18,10 +18,10 @@
       - name: find version name
         run: |
           grep -r "versionName"  app/build.gradle
-          $Version_Name = grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' 
+          grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' 
 
 
-      - run: git tag $Version_Name
+      - run: git tag $( grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' )
       - uses: fregante/release-with-changelog@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -30,7 +30,7 @@
           template: '{commits}'
       - name: Update major tag
         run: |
-          MAJOR=$Version_Name
+          MAJOR=$( grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' )
           git push origin HEAD:refs/tags/$MAJOR --force
 
 
