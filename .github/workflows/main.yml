@@ -17,6 +17,7 @@
       - name: find version name
         run: |
           grep -r "versionName"  app/build.gradle
-          grep -r "versionName"  app/build.gradle | sed -n '/"/,/"/p'
+          grep -r "versionName"  app/build.gradle | sed -e 's/"\(.*\)"/\1/'
+
 
 
