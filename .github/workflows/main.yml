@@ -14,3 +14,9 @@
         uses: actions/checkout@v2.3.4
       - name: show resume.tex file content
         run: cat app/build.gradle
+      - name: find version name
+        run: |
+          grep -r "versionName"  app/build.gradle
+          grep -r "versionName"  app/build.gradle | sed -n '/"/,/"/p'
+
+
