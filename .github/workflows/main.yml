@@ -12,13 +12,25 @@
       steps:
       - name: checkout repo
         uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2
       - name: show resume.tex file content
         run: cat app/build.gradle
       - name: find version name
         run: |
           grep -r "versionName"  app/build.gradle
-          grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' 
+          $Version_Name = grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' 
 
 
+      - run: git tag $Version_Name
+      - uses: fregante/release-with-changelog@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          #exclude: true
+          #draft: true
+          template: '{commits}'
+      - name: Update major tag
+        run: |
+          MAJOR=$Version_Name
+          git push origin HEAD:refs/tags/$MAJOR --force
 
 
