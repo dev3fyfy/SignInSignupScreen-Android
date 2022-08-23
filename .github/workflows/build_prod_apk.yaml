@@ -28,7 +28,7 @@ jobs:
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channel: ${{ secrets.SLACK_CHANNELS }}
-          path: 'app/build/outputs/apk/playStoreMobile/app.apk'
-          filename: 'app-playStore-mobile-retailer_s1.apk'
+          path: 'app/build/outputs/apk/debug/app-debug.apk'
+          filename: 'app-debug.apk'
           filetype: 'apk'
-          initial_comment: "Retailer App APK Generated From ${{ github.ref }}"
+          initial_comment: "Test App APK Generated From ${{ github.ref }}"
