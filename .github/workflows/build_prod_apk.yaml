@@ -15,7 +15,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 5
+          java-version: 9.*
       - name: Build APK - test
         run: bash ./gradlew build --stacktrace 
 
