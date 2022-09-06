@@ -40,7 +40,7 @@
         if: success()
         env:
           channel: ${{ secrets.SLACK_CHANNELS }}
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK }}
         uses: voxmedia/github-action-slack-notify-build@v1
         with:
           channel: app-alerts
@@ -50,7 +50,7 @@
         if: failure()
         env:
           channel: ${{ secrets.SLACK_CHANNELS }}
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK }}
         uses: voxmedia/github-action-slack-notify-build@v1
         with:
           channel: app-alerts
