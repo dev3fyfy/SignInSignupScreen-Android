@@ -1,4 +1,4 @@
- name: Example
+ name: Release_auto_from_file
 
  on:
    push:
