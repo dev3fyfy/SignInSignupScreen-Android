@@ -29,9 +29,9 @@
           #exclude: true
           #draft: true
           template: '{commits}'
-      - name: Update major tag
-        run: |
-          MAJOR=$( grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' )
-          git push origin HEAD:refs/tags/$MAJOR --force
+ #     - name: Update major tag
+  #      run: |
+   #       MAJOR=$( grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' )
+    #      git push origin HEAD:refs/tags/$MAJOR --force
 
 
