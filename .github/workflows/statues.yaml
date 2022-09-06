@@ -54,7 +54,7 @@
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       - name: action-slack-notify
         if: always()
-      - uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_CHANNEL: general
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
