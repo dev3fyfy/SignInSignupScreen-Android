@@ -1,4 +1,4 @@
- name: Example
+ name: Status
 
  on:
    push:
@@ -38,22 +38,18 @@
     #      git push origin HEAD:refs/tags/$MAJOR --force
       - name: Notify slack success
         if: success()
-        env:
-          channel: ${{ secrets.SLACK_CHANNELS }}
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK }}
-        uses: voxmedia/github-action-slack-notify-build@v1
+        uses: ravsamhq/notify-slack-action@master
         with:
-          channel: app-alerts
-          status: SUCCESS
-          color: good
+          status: ${{ job.status }}
+          notify_when: 'success'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       - name: Notify slack fail
         if: failure()
-        env:
-          channel: ${{ secrets.SLACK_CHANNELS }}
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK }}
-        uses: voxmedia/github-action-slack-notify-build@v1
+        uses: ravsamhq/notify-slack-action@master
         with:
-          channel: app-alerts
-          status: FAILED
-          color: danger
+          status: ${{ job.status }}
+          notify_when: 'failure'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
