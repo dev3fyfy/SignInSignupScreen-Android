@@ -57,9 +57,7 @@
         uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_CHANNEL:  ${{ secrets.SLACK_CHANNELS }}
-        cond: ${{ job.status == 'success' }}
-        if: failure()
-        SLACK_COLOR:  'danger'
+        SLACK_COLOR:  ${{ success() }}?'good':'danger'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Post Content :rocket:'
        # SLACK_TITLE: ${{ success() }}?'aaa':'bbb'
