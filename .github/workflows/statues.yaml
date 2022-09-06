@@ -67,8 +67,8 @@
         uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_CHANNEL:  ${{ secrets.SLACK_CHANNELS }}
-        SLACK_COLOR: 'good'
-        SLACK_MESSAGE: 'Success'
+        SLACK_COLOR: 'danger'
+        SLACK_MESSAGE: 'Failure'
         SLACK_USERNAME: GthubActions
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
