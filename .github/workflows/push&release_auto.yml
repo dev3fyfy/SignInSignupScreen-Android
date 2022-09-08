@@ -21,10 +21,10 @@
       - name: find version name
         run: |
           grep -r "versionName"  app/build.gradle
-          grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' 
+          grep -r "versionName"  app/build.gradle |echo "v"$(awk -F '"' '{print $2}')
 
 
-      - run: git tag $( grep -r "versionName"  app/build.gradle |awk -F '"' '{print $2}' )
+      - run: git tag $( grep -r "versionName"  app/build.gradle |echo "v"$(awk -F '"' '{print $2}') )
       - uses: fregante/release-with-changelog@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
