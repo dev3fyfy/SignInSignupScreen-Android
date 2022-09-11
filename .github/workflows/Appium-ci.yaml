@@ -22,6 +22,8 @@ jobs:
          npm install -g appium
          appium -v
          appium &>/dev/null &
+         
+         git clone https://github.com/dev3fyfy/github_actions_test.git
        # chmod +x ./RunAppiumServer.sh # install and run appium server in the background
        # ./RunAppiumServer.sh
     - name: Run Appium Tests
