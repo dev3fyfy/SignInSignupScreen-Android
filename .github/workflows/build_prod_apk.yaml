@@ -42,7 +42,7 @@ jobs:
           path: 'app/build/outputs/apk/debug/app-debug.apk'
           filename: 'app-debug.apk'
           filetype: 'apk'
-          initial_comment: "${{ github.ref }} - $'\n'/ ${{github.event.inputs.message}}    5 $'\\n'   11 $'\n' 111     "
+          initial_comment: "${{ github.ref }} - '\n'/ ${{github.event.inputs.message}}    5 '\n'   11 '\n' 111     "
       - name: Notify slack success
         if: success()
         uses: ravsamhq/notify-slack-action@master
