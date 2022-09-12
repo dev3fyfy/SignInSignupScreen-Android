@@ -3,6 +3,7 @@ name: Appium CI
 on: [push]
 
 
+
 jobs:
   build:
     runs-on: macos-latest # the machine type
