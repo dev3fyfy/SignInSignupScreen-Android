@@ -21,6 +21,7 @@ jobs:
       run: |
         chmod +x ./script/RunAppiumServer.sh # install and run appium server in the background
         ./script/RunAppiumServer.sh
+        chmod +x ./gradlew
     - name: Run Appium Tests
       uses: reactivecircus/android-emulator-runner@v1 # install and create the Emulator
       with:
@@ -28,7 +29,5 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: |
-             chmod 755 ./gradlew
-             ./gradlew test --info # running our test with info to check the results
+        script: ./gradlew test --info # running our test with info to check the results
   
