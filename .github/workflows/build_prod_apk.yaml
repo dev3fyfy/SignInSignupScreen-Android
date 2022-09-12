@@ -1,9 +1,10 @@
 name: Android CI - Build and Publish APK
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      message:
+        required: true
 
 jobs:
   apk:
@@ -41,7 +42,7 @@ jobs:
           path: 'app/build/outputs/apk/debug/app-debug.apk'
           filename: 'app-debug.apk'
           filetype: 'apk'
-          initial_comment: "Test App APK Generated From ${{ github.ref }}"
+          initial_comment: "${{ github.ref }} - ${{github.event.inputs.message}}"
       - name: Notify slack success
         if: success()
         uses: ravsamhq/notify-slack-action@master
