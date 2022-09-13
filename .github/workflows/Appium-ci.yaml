@@ -26,7 +26,7 @@ jobs:
     - name: Clone repository
       run: git clone git@github.com:dev3fyfy/github_actions_test.git
     - name: Files
-      run: ls -laR 
+      run: ls -laR github_actions_test
     - name: Install and Run Appium Server
       run: |
         chmod +x ./script/RunAppiumServer.sh # install and run appium server in the background
