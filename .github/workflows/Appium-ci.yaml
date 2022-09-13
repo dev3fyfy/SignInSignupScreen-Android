@@ -41,5 +41,6 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
+        working-directory: github_actions_test
         script: ./gradlew test --info # running our test with info to check the results
   
