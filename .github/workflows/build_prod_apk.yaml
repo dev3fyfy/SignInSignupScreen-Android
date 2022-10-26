@@ -36,7 +36,7 @@ jobs:
       - name: run
         run: |
           touch txt.txt
-          
+          echo 'text to append_add_here' >> txt.txt
       - name: Send APK to Slack - test
         uses: adrey/slack-file-upload-action@master
         continue-on-error: true
